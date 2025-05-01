@@ -10,10 +10,18 @@ const multilingualFieldSchema = new Schema(
   { _id: false }
 );
 
+const paragraphSchema = new Schema(
+  {
+    subtitle: multilingualFieldSchema,
+    paragraph: multilingualFieldSchema,
+  },
+  { _id: false }
+);
+
 const serviceSchema = new Schema(
   {
     title: multilingualFieldSchema,
-    description: multilingualFieldSchema,
+    description: [paragraphSchema],
     isActive: { type: Boolean, default: true },
   },
   { timestamps: true, minimize: true, autoIndex: true }
