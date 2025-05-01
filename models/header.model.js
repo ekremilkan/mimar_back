@@ -11,10 +11,12 @@ const multilingualFieldSchema = new Schema(
   { _id: false }
 );
 
+
 const headerMenuItemSchema = new Schema(
   {
     title: multilingualFieldSchema,
     destination: multilingualFieldSchema,
+    order: { type: Number, default: 0 },
     isActive: { type: Boolean, default: true },
     parentId: { type: Schema.Types.ObjectId, ref: "MenuItem", default: null },
   },
@@ -36,7 +38,7 @@ const socialMediaSchema = new Schema(
 );
 
 
-
+//header ana şeması
 const headerSchema = new Schema(
   {
     headerMenuItems: [headerMenuItemSchema],
