@@ -27,6 +27,7 @@ const PORT = process.env.PORT || 5005;
 // Statik dosyalar ve JSON veri işleme
 app.use("/uploads", express.static("uploads"));
 app.use(express.json());
+app.use("/products", router.productsRouter)
 
 // Logger middleware'i kullan
 app.use(middlewares.loggerMiddleware);
